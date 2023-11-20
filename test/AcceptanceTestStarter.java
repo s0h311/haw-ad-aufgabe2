@@ -3,26 +3,23 @@ package test;
 import application.*;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
 public class AcceptanceTestStarter {
 
-  static Comparator<Integer> comp = (o1, o2) -> o1 - o2;
-
   @SuppressWarnings("unchecked")
   private static final ArraySorter<Integer>[] sorter =
       (ArraySorter<Integer>[]) (new ArraySorter[]{
-          new InsertionSortClassic(comp),   // <<<=== HERE
-          new InsertionSortV1(comp),
-          new InsertionSortBinary(comp),
-          new ShellSort(comp),
-          new HeapSort(comp),
-          new MergeSort(comp),
-          new QuickSort(comp),
-          new GnomeSort(comp),
-          new ArraySort(comp),
-          new ArrayParallelSort(comp)
+          new InsertionSortClassic<Integer>(Integer::compare),   // <<<=== HERE
+          new InsertionSortV1<Integer>(Integer::compare),
+          new InsertionSortBinary<Integer>(Integer::compare),
+          new ShellSort<Integer>(Integer::compare),
+          new HeapSort<Integer>(Integer::compare),
+          new MergeSort<Integer>(Integer::compare),
+          new QuickSort<Integer>(Integer::compare),
+          new GnomeSort<Integer>(Integer::compare),
+          new ArraySort<Integer>(Integer::compare),
+          new ArrayParallelSort<Integer>(Integer::compare)
       }
       );
 
