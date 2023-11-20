@@ -19,7 +19,12 @@ public class AcceptanceTestStarter {
           new QuickSort<Integer>(Integer::compare),
           new GnomeSort<Integer>(Integer::compare),
           new ArraySort<Integer>(Integer::compare),
-          new ArrayParallelSort<Integer>(Integer::compare)
+          new ArrayParallelSort<Integer>(Integer::compare),
+          new ShakeSort<Integer>(Integer::compare),
+          new ExchangeBasedSortV2<Integer>(Integer::compare),
+          new ExchangeBasedSortV1<Integer>(Integer::compare),
+          new BubbleSort<Integer>(Integer::compare),
+          new SelectionSort<Integer>(Integer::compare)
       }
       );
 

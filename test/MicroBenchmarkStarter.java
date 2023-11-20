@@ -1,8 +1,7 @@
 package test;
 
 
-import application.ArraySorter;
-import application.InsertionSortClassic;
+import application.*;
 import utilityStuff.*;
 
 
@@ -12,10 +11,21 @@ public class MicroBenchmarkStarter {
   @SuppressWarnings("unchecked")
   private static final ArraySorter<Item>[] sorter =
       (ArraySorter<Item>[]) (new ArraySorter[]{
-          new InsertionSortClassic(new ItemComparatorAscendingNaturalOrder()),
-          new InsertionSortClassic(new ItemComparatorDescendingNaturalOrder())
-          //new QuickSortRG<Item>( new ItemComparatorAscendingNaturalOrder() ),
-          //new QuickSortRG2<Item>( new ItemComparatorAscendingNaturalOrder() ),
+          new InsertionSortClassic<Item>(new ItemComparatorAscendingNaturalOrder()),
+          new InsertionSortV1<Item>(new ItemComparatorAscendingNaturalOrder()),
+          new InsertionSortBinary<Item>(new ItemComparatorAscendingNaturalOrder()),
+          new ArrayParallelSort<Item>(new ItemComparatorAscendingNaturalOrder()),
+          new ArraySort<Item>(new ItemComparatorAscendingNaturalOrder()),
+          new GnomeSort<Item>(new ItemComparatorAscendingNaturalOrder()),
+          new HeapSort<Item>(new ItemComparatorAscendingNaturalOrder()),
+          new MergeSort<Item>(new ItemComparatorAscendingNaturalOrder()),
+          new QuickSort<Item>(new ItemComparatorAscendingNaturalOrder()),
+          new ShellSort<Item>(new ItemComparatorAscendingNaturalOrder()),
+          new BubbleSort<Item>(new ItemComparatorAscendingNaturalOrder()),
+          new ExchangeBasedSortV1<Item>(new ItemComparatorAscendingNaturalOrder()),
+          new ExchangeBasedSortV2<Item>(new ItemComparatorAscendingNaturalOrder()),
+          new SelectionSort<Item>(new ItemComparatorAscendingNaturalOrder()),
+          new ShakeSort<Item>(new ItemComparatorAscendingNaturalOrder())
       }
       );
 
