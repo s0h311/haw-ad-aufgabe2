@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class InsertionSortBinary<T> implements ArraySorter<T> {
 
-  private Comparator<T> comp;
+  private final Comparator<T> comp;
 
   public InsertionSortBinary(Comparator<T> comp) {
     this.comp = comp;

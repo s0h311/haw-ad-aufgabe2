@@ -3,7 +3,7 @@ package application;
 import java.util.Comparator;
 
 public class Shellsort<T> implements ArraySorter<T> {
-  private Comparator<T> comp;
+  private final Comparator<T> comp;
 
   public Shellsort(Comparator<T> comp) {
     this.comp = comp;

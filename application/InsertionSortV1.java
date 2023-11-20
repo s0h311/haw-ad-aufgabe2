@@ -4,7 +4,7 @@ import java.util.Comparator;
 
 public class InsertionSortV1<T> implements ArraySorter<T> {
 
-  private Comparator<T> comp;
+  private final Comparator<T> comp;
 
   public InsertionSortV1(Comparator<T> comp) {
     this.comp = comp;

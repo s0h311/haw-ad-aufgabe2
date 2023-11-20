@@ -6,5 +6,5 @@ public interface ArraySorter<T> {
   * =======================
   public ArraySorter( final Comparator<T> comp );
   */
-  void sort( final T[] arrayToBeSorted );
+  void sort(final T[] arrayToBeSorted);
 }//interface
