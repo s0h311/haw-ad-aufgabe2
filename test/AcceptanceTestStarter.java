@@ -16,7 +16,7 @@ public class AcceptanceTestStarter {
           new InsertionSortClassic(comp),   // <<<=== HERE
           new InsertionSortV1(comp),
           new InsertionSortBinary(comp),
-          new Shellsort(comp),
+          new ShellSort(comp),
           new HeapSort(comp),
           new MergeSort(comp),
           new QuickSort(comp),

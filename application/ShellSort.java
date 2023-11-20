@@ -2,10 +2,10 @@ package application;
 
 import java.util.Comparator;
 
-public class Shellsort<T> implements ArraySorter<T> {
+public class ShellSort<T> implements ArraySorter<T> {
   private final Comparator<T> comp;
 
-  public Shellsort(Comparator<T> comp) {
+  public ShellSort(Comparator<T> comp) {
     this.comp = comp;
   }
 
