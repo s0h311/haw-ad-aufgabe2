@@ -17,6 +17,9 @@ public class InsertionSortV1<T> implements ArraySorter<T> {
          currentItemToBePlacedIdx < arrayToBeSorted.length;
          currentItemToBePlacedIdx++
     ) {
+      if (Thread.interrupted()) {
+        return;
+      }
       final T currentItemToBePlaced = arrayToBeSorted[currentItemToBePlacedIdx];
       arrayToBeSorted[0] = currentItemToBePlaced; // (Ende-)Marke setzen
       int wrkIdx = currentItemToBePlacedIdx - 1;

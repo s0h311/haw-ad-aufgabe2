@@ -16,6 +16,9 @@ public class InsertionSortBinary<T> implements ArraySorter<T> {
          currentItemToBePlacedIdx < arrayToBeSorted.length;
          currentItemToBePlacedIdx++
     ) {
+      if (Thread.interrupted()) {
+        return;
+      }
       final T currentItemToBePlaced = arrayToBeSorted[currentItemToBePlacedIdx];
       int lb = 0;
       int rb = currentItemToBePlacedIdx;

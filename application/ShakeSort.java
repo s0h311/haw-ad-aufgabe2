@@ -16,6 +16,9 @@ public class ShakeSort<T> implements ArraySorter<T> {
     int lbi = 0;
     int rbi = arrayToBeSorted.length - 1;
     while (lbi < rbi) {
+      if (Thread.interrupted()) {
+        return;
+      }
       lastIdx = lbi;
       for (int idx = lbi + 1; idx <= rbi; idx++) {
         if (comp.compare(arrayToBeSorted[idx - 1], arrayToBeSorted[idx]) > 0) {

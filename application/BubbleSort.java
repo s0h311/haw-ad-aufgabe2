@@ -13,6 +13,9 @@ public class BubbleSort<T> implements ArraySorter<T> {
   @Override
   public void sort(T[] arrayToBeSorted) {
     for (int currentEndIdx = arrayToBeSorted.length; --currentEndIdx > 0; ) {
+      if (Thread.interrupted()) {
+        return;
+      }
       // Nach jeder Iteration ist das Listenende sortiert.
       // currentEndIdx damit wir nicht unnötig das sortierte Ende noch durchgehen
       for (int idx = 1; idx <= currentEndIdx; idx++) {

@@ -12,9 +12,12 @@ public class ExchangeBasedSortV1<T> implements ArraySorter<T> {
 
   @Override
   public void sort(T[] arrayToBeSorted) {
-    boolean exchangesHappened = true;
+    boolean exchangesHappened = true; // Früher abbrechen
     int currentEndIdx = 1;
     while ((currentEndIdx < arrayToBeSorted.length) && exchangesHappened) {
+      if (Thread.interrupted()) {
+        return;
+      }
       exchangesHappened = false;
       for (int idx = arrayToBeSorted.length; --idx >= currentEndIdx; ) {
         if (0 < comp.compare(arrayToBeSorted[idx - 1], arrayToBeSorted[idx])) {

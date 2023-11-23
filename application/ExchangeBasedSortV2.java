@@ -14,6 +14,9 @@ public class ExchangeBasedSortV2<T> implements ArraySorter<T> {
   public void sort(T[] arrayToBeSorted) {
     int currentEndIdx = 1;
     while (currentEndIdx < arrayToBeSorted.length) {
+      if (Thread.interrupted()) {
+        return;
+      }
       int lastIdx = arrayToBeSorted.length;
       for (int idx = arrayToBeSorted.length; --idx >= currentEndIdx; ) {
         if (0 < comp.compare(arrayToBeSorted[idx - 1], arrayToBeSorted[idx])) {

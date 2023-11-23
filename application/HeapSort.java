@@ -20,6 +20,9 @@ public class HeapSort<T> implements ArraySorter<T> {
     }//for
     // Größten entfernen und wieder Heap sicherstellen
     for (int i = arrayToBeSorted.length - 1; i > 0; i--) {
+      if (Thread.interrupted()) {
+        return;
+      }
       final T max = arrayToBeSorted[0];
       arrayToBeSorted[0] = arrayToBeSorted[i];
       arrayToBeSorted[i] = max;

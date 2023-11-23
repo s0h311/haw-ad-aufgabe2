@@ -16,6 +16,9 @@ public class SelectionSort<T> implements ArraySorter<T> {
          targetIdxOfSelectected < arrayToBeSorted.length;
          targetIdxOfSelectected++
     ) {
+      if (Thread.interrupted()) {
+        return;
+      }
       int candidateIdx = targetIdxOfSelectected;
       for (int searchIdx = targetIdxOfSelectected + 1;
            searchIdx < arrayToBeSorted.length;

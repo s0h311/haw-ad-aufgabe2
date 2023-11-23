@@ -23,6 +23,9 @@ public class QuickSort<T> implements ArraySorter<T> {
       final int lb, // lb ::= left border
       final int rb // rb ::= right border
   ) {
+    if (Thread.interrupted()) {
+      return;
+    }
     if (lb < rb) {
       final int[] mb = partition(arrayToBeSorted, lb, rb); // mb ::= middle border
       quickSort(arrayToBeSorted, lb, mb[left]);

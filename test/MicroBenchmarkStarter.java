@@ -4,6 +4,8 @@ package test;
 import application.*;
 import utilityStuff.*;
 
+import java.util.concurrent.*;
+
 
 public class MicroBenchmarkStarter {
 
@@ -46,8 +48,18 @@ public class MicroBenchmarkStarter {
         for (int rc = runCnt; --rc >= 0; ) {
           final Item[] arrayToBeSorted = uiag.createUnsortedItemArray();
           final long startTime = System.nanoTime();
-          //
-          currentSorter.sort(arrayToBeSorted);
+
+          ExecutorService executorService = Executors.newSingleThreadExecutor();
+          try {
+            executorService.submit(() -> {
+              currentSorter.sort(arrayToBeSorted);
+            }).get(10, TimeUnit.MINUTES);
+          } catch (InterruptedException | ExecutionException | TimeoutException e) {
+            break;
+          } finally {
+            executorService.shutdown();
+          }
+
           //
           final long endTime = System.nanoTime();
           duration += (endTime - startTime);

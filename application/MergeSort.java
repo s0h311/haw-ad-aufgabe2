@@ -25,6 +25,9 @@ public class MergeSort<T> implements ArraySorter<T> {
       final int lb, // lb ::= left border
       final int rb // rb ::= right border
   ) {
+    if (Thread.interrupted()) {
+      return;
+    }
     if (lb < rb) {
       final int m = (lb + rb) / 2;
       mergeSort(lb, m);
