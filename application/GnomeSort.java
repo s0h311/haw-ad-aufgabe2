@@ -13,7 +13,7 @@ public class GnomeSort<T> implements ArraySorter<T> {
   @Override
   public void sort(T[] arrayToBeSorted) {
     int index = 0;
-    while (index < arrayToBeSorted.length) {
+    while (index < arrayToBeSorted.length) { // Ein Durchgang, allerdings vergleicht die gleichen Elemente mehrmals
       if (index == 0) index++;
 
       int comparisonResult = comp.compare(arrayToBeSorted[index], arrayToBeSorted[index - 1]);

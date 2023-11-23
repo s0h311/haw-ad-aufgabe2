@@ -43,9 +43,9 @@ public class MergeSort<T> implements ArraySorter<T> {
     int ci = lslib; // ci ::= current/work index
     while ((lsi < rslib) && (rsi <= rsrib)) {
       final int c = comp.compare(array[lsi], array[rsi]);
-      if (0 > c) {
+      if (c < 0) {
         copya[ci++] = array[lsi++];
-      } else if (0 < c) {
+      } else if (c > 0) {
         copya[ci++] = array[rsi++];
       } else {
         copya[ci++] = array[lsi++];

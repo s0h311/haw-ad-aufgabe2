@@ -18,7 +18,7 @@ public class ShakeSort<T> implements ArraySorter<T> {
     while (lbi < rbi) {
       lastIdx = lbi;
       for (int idx = lbi + 1; idx <= rbi; idx++) {
-        if (0 < comp.compare(arrayToBeSorted[idx - 1], arrayToBeSorted[idx])) {
+        if (comp.compare(arrayToBeSorted[idx - 1], arrayToBeSorted[idx]) > 0) {
           final T tmp = arrayToBeSorted[idx - 1];
           arrayToBeSorted[idx - 1] = arrayToBeSorted[idx];
           arrayToBeSorted[idx] = tmp;
@@ -28,7 +28,7 @@ public class ShakeSort<T> implements ArraySorter<T> {
       rbi = lastIdx - 1;
       lastIdx = rbi;
       for (int idx = rbi - 1; idx >= lbi; idx--) {
-        if (0 > comp.compare(arrayToBeSorted[idx + 1], arrayToBeSorted[idx])) {
+        if (comp.compare(arrayToBeSorted[idx + 1], arrayToBeSorted[idx]) < 0) {
           final T tmp = arrayToBeSorted[idx + 1];
           arrayToBeSorted[idx + 1] = arrayToBeSorted[idx];
           arrayToBeSorted[idx] = tmp;

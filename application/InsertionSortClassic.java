@@ -10,20 +10,20 @@ public class InsertionSortClassic<T> implements ArraySorter<T> {
   }
 
   @Override
-  public void sort(final T[] ai) {
+  public void sort(T[] arrayToBeSorted) {
     for (int currentItemToBePlacedIdx = 1;
-         currentItemToBePlacedIdx < ai.length;
+         currentItemToBePlacedIdx < arrayToBeSorted.length;
          currentItemToBePlacedIdx++
     ) {
-      final T currentItemToBePlaced = ai[currentItemToBePlacedIdx];
+      T currentItemToBePlaced = arrayToBeSorted[currentItemToBePlacedIdx];
       int wrkIdx = currentItemToBePlacedIdx - 1;
-      while ((0 <= wrkIdx)
-          && (0 > comp.compare(currentItemToBePlaced, ai[wrkIdx]))
+      while (wrkIdx >= 0
+          && (comp.compare(currentItemToBePlaced, arrayToBeSorted[wrkIdx]) < 0)
       ) {
-        ai[wrkIdx + 1] = ai[wrkIdx];
+        arrayToBeSorted[wrkIdx + 1] = arrayToBeSorted[wrkIdx];
         wrkIdx--;
       }//while
-      ai[wrkIdx + 1] = currentItemToBePlaced;
+      arrayToBeSorted[wrkIdx + 1] = currentItemToBePlaced;
     }//for
   }//method()
 }

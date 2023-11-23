@@ -19,7 +19,7 @@ public class ShellSort<T> implements ArraySorter<T> {
 
   @Override
   public void sort(T[] arrayToBeSorted) {
-    for (int stepSizeIdx = stepSize.length; --stepSizeIdx >= 0; ) {
+    for (int stepSizeIdx = stepSize.length - 1; stepSizeIdx >= 0; stepSizeIdx--) {
       final int inc = stepSize[stepSizeIdx];
       for (int idx = inc; idx < arrayToBeSorted.length; idx++) {
         final T currentItemToBePlaced = arrayToBeSorted[idx];

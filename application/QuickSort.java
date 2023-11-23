@@ -6,8 +6,8 @@ public class QuickSort<T> implements ArraySorter<T> {
 
   private final Comparator<T> comp;
 
-  final static private int left = 0;
-  final static private int right = 1;
+  private final int left = 0;
+  private final int right = 1;
 
   public QuickSort(Comparator<T> comp) {
     this.comp = comp;
@@ -31,7 +31,7 @@ public class QuickSort<T> implements ArraySorter<T> {
   }//method()
 
   private int[] partition(T[] arrayToBeSorted, final int lb, final int rb) {
-    final int pivotPosition = (lb + rb) / 2;
+    final int pivotPosition = (lb + rb) / 2; // Pivotelement aus der Mitte
     final T pivot = arrayToBeSorted[pivotPosition];
     int li = lb; // li ::= left index
     int ri = rb; // ri ::= right index

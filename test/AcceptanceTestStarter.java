@@ -10,24 +10,22 @@ public class AcceptanceTestStarter {
   @SuppressWarnings("unchecked")
   private static final ArraySorter<Integer>[] sorter =
       (ArraySorter<Integer>[]) (new ArraySorter[]{
-          new InsertionSortClassic<Integer>(Integer::compare),   // <<<=== HERE
-          new InsertionSortV1<Integer>(Integer::compare),
-          new InsertionSortBinary<Integer>(Integer::compare),
-          new ShellSort<Integer>(Integer::compare),
-          new HeapSort<Integer>(Integer::compare),
-          new MergeSort<Integer>(Integer::compare),
-          new QuickSort<Integer>(Integer::compare),
-          new GnomeSort<Integer>(Integer::compare),
-          new ArraySort<Integer>(Integer::compare),
-          new ArrayParallelSort<Integer>(Integer::compare),
-          new ShakeSort<Integer>(Integer::compare),
-          new ExchangeBasedSortV2<Integer>(Integer::compare),
-          new ExchangeBasedSortV1<Integer>(Integer::compare),
-          new BubbleSort<Integer>(Integer::compare),
-          new SelectionSort<Integer>(Integer::compare)
-      }
-      );
-
+          new InsertionSortClassic<>(Integer::compare),   // <<<=== HERE
+          new InsertionSortV1<>(Integer::compare),
+          new InsertionSortBinary<>(Integer::compare),
+          new ShellSort<>(Integer::compare),
+          new HeapSort<>(Integer::compare),
+          new MergeSort<>(Integer::compare),
+          new QuickSort<>(Integer::compare),
+          new GnomeSort<>(Integer::compare),
+          new ArraySort<>(Integer::compare),
+          new ArrayParallelSort<>(Integer::compare),
+          new ShakeSort<>(Integer::compare),
+          new ExchangeBasedSortV2<>(Integer::compare),
+          new ExchangeBasedSortV1<>(Integer::compare),
+          new BubbleSort<>(Integer::compare),
+          new SelectionSort<>(Integer::compare)
+      });
 
   public static void main(final String... unused) {
     // checklist for later review of the results
